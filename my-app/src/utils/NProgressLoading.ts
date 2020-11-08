@@ -1,6 +1,6 @@
 import NProgress from 'nprogress';
-import 'nprogress/nprogress.css'
 import {Router} from "vue-router";
+import 'nprogress/nprogress.css'
 
 
 export default function loading(router: Router) {
