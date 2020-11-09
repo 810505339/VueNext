@@ -3,3 +3,5 @@ declare module '*.less' {
     export default content
 }
 
+declare module '*.png'
+
