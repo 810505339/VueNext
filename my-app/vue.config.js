@@ -1,4 +1,12 @@
+const createThemeColorReplacerPlugin = require('./config/plugin.config')
 module.exports = {
+    publicPath: process.env.NODE_ENV === 'production' ? '' : '/',
+    configureWebpack: {
+        // webpack plugins
+        plugins: [
+            createThemeColorReplacerPlugin()
+        ],
+    },
     css: {
         requireModuleExtension: true,
         loaderOptions: {
