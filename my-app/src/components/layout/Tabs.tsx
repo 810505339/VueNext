@@ -6,8 +6,8 @@ import {RouteRecordRaw, useRouter} from 'vue-router'
 const {SubMenu, Item} = Menu
 
 export default defineComponent(() => {
-    const theme = inject<"light" | "dark">('theme') //拿到theme
-    console.log(theme)
+    const theme: any = inject<"light" | "dark">('theme') //拿到theme
+
     const {options} = useRouter()
     const router = options.routes;
     const renderItem = (childRouter: RouteRecordRaw) => {
@@ -29,7 +29,7 @@ export default defineComponent(() => {
         })
 
     }
-    return () => (<Menu theme={theme}>
+    return () => (<Menu theme={theme.value}>
         {renderSub(router)}
     </Menu>)
 })
