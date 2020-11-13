@@ -28,46 +28,48 @@ meta: {
 
 const routes: Array<RouteRecordRaw> = [
     {
-        name: 'Home',
-        path: '/home',
+        name: 'root',
+        path: '/',
         component: () => import('@/components/layout'),
-        meta: {
-            title: '首页',
-            icon: HomeFilled
-        },
-
-    },
-    {
-        name: 'List',
-        path: '/list',
-        component: () => import('@/views/list'),
-        meta: {
-            title: 'list页面',
-            icon: HomeFilled
-        },
         children: [
             {
-                name: 'List',
-                path: 'list',
-                component: () => import('@/views/list'),
+                name: 'home',
+                path: 'home',
+                component: () => import('@/views/home'),
                 meta: {
-                    title: 'list页面',
+                    title: '首页',
                     icon: HomeFilled
-                },
-
+                }
             },
             {
-                name: 'aList',
-                path: 'aList',
-                component: () => import('@/views/list'),
+                name: 'list',
+                path: 'list',
+                component: () => import('@/views/info'),
                 meta: {
-                    title: 'list页面',
+                    title: '列表页',
                     icon: HomeFilled
                 },
-
+                children: [
+                    {
+                        name: 'info',
+                        path: 'info',
+                        component: () => import('@/views/info'),
+                        meta: {
+                            title: '查询表格',
+                            icon: HomeFilled
+                        },
+                    },
+                ]
             },
         ]
-
+    },
+    {
+        name: 'login',
+        path: '/login',
+        component: () => import('@/views/login'),
+        meta: {
+            hidden: true
+        }
     },
 ]
 
