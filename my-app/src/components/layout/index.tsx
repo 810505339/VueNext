@@ -9,7 +9,7 @@ const {Sider, Header, Footer, Content} = Layout
 
 
 export default defineComponent(() => {
-    const theme = ref<'light' | 'dark'>('dark')
+    const theme = ref<'light' | 'dark'>('light')
     provide('theme', theme)//注入主题
 
     const changeTheme = (Theme: 'light' | 'dark') => {

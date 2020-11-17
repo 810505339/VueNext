@@ -1,8 +1,7 @@
 import {defineComponent, inject, computed, Ref} from 'vue'
-import {MenuFoldOutlined, MenuUnfoldOutlined} from '@ant-design/icons-vue'
-import {Select} from 'ant-design-vue'
-import SettingDrawer from "@/components/SettingDrawer/SettingDrawer";
+import {MenuFoldOutlined, MenuUnfoldOutlined, SwapOutlined} from '@ant-design/icons-vue'
 import Css from './layout.module.less'
+import {Avatar} from "ant-design-vue";
 
 
 export default defineComponent({
@@ -12,25 +11,28 @@ export default defineComponent({
             default: false
         }
     },
-    setup(props, {emit}) {
+    setup(props, {emit, slots}) {
         const theme: Ref<'dark' | 'light'> = inject('theme') as Ref<'dark' | 'light'>  //拿到主题
 
         const color = computed(() => {
             return theme.value == 'dark' ? {color: '#ffffff'} : {color: '#001529'}
         })
-        const changeTheme: any = inject('changeTheme')  //修改的方法
 
+        const renderRightBox = () => (<div class={Css.rightBox}>
+            <div class={['action', Css.userBox]}>
+                <Avatar/>
+                <span>二狗</span>
+            </div>
+            <div><SwapOutlined/></div>
+        </div>)
 
         return () => (
             <div class={Css.header}>
                 <span class={Css.icon} onClick={() => emit('update:collapsed', !props.collapsed)}>{(props.collapsed ?
                     <MenuFoldOutlined style={color.value}/> : <MenuUnfoldOutlined style={color.value}/>)}
                 </span>
-                <Select value={theme.value} onChange={(value: any) => changeTheme(value)}>
-                    <Select.Option value={'dark'}>黑色</Select.Option>
-                    <Select.Option value={'light'}>亮色</Select.Option>
-                </Select>
-                <SettingDrawer/>
+                {slots.default?.()}
+                {renderRightBox()}
             </div>
         )
     }

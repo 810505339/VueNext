@@ -25,5 +25,31 @@ module.exports = {
                 javascriptEnabled: true
             }
         }
-    }
+    },
+    devServer: {
+        open: false, // 编译完成是否打开网页
+        host: '0.0.0.0', // 指定使用地址，默认localhost,0.0.0.0代表可以被外界访问
+        port: 8080, // 访问端口
+        https: false, // 编译失败时刷新页面
+        hot: true, // 开启热加载
+        hotOnly: false,
+        proxy: {
+
+            '/api': {
+                target: 'http://zhangke:8081/hhcd',
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/api': '/'
+                }
+            }
+        },
+        overlay: { // 全屏模式下是否显示脚本错误DRFC
+            warnings: true,
+            errors: true
+        },
+
+        before: app => {
+        }
+    },
+
 }

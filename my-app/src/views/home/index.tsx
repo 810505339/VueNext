@@ -1,7 +1,7 @@
 import {defineComponent} from 'vue'
 
 export default defineComponent({
-    name: 'login',
+    name: 'Home',
     setup() {
         return () => (<div>Home</div>)
     }
