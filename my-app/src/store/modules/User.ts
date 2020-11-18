@@ -12,10 +12,19 @@ const mutations = {
         sessionStorage.setItem('token', token)
 
     },
+    removeToken(state: IUser) {
+        state.token = ''
+        sessionStorage.removeItem('token')
+    },
+    removeUser(state: IUser) {
+        state.userInfo = ''
+        sessionStorage.removeItem('userInfo')
+    },
     setUser(state: IUser, userInfo: string) {
         state.userInfo = userInfo
         sessionStorage.setItem('userInfo', userInfo)
-    }
+    },
+
 }
 const actions = {}
 

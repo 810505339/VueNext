@@ -1,5 +1,5 @@
 import {createRouter, RouteRecordRaw, createWebHashHistory} from 'vue-router'
-import {HomeFilled} from '@ant-design/icons-vue'
+import {HomeFilled, TableOutlined} from '@ant-design/icons-vue'
 
 /*
 // 当设置 true 的时候该路由不会在侧边栏出现 如401，login等页面，或者如一些编辑页面/edit/1
@@ -42,20 +42,20 @@ const routes: Array<RouteRecordRaw> = [
                 }
             },
             {
-                name: 'list',
-                path: 'list',
-                component: () => import('@/views/info'),
+                name: 'form',
+                path: 'form',
+                component: () => import('@/components/RouterView/BlankView'),
                 meta: {
-                    title: '列表页',
-                    icon: HomeFilled
+                    title: '表格页',
+                    icon: TableOutlined
                 },
                 children: [
                     {
-                        name: 'info',
-                        path: 'info',
-                        component: () => import('@/views/info'),
+                        name: 'file-table',
+                        path: 'file-table',
+                        component: () => import('@/views/form/FileTable'),
                         meta: {
-                            title: '查询表格',
+                            title: '文件表格',
                             icon: HomeFilled
                         },
                     },

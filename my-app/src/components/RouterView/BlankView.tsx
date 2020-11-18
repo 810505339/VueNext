@@ -3,5 +3,10 @@ import {RouterView} from 'vue-router'
 
 
 export default defineComponent(() => {
-    return () => (<RouterView v-slots={{default: ({Compoent}: any) => <Transition    name="slide-fade" >{Compoent}</Transition>}}/>)
+    return () => (
+        <div>
+            <RouterView v-slots={{
+                default: ({Component}: any) => <Transition name="fade" mode="out-in">{Component}</Transition>
+            }}/>
+        </div>)
 })

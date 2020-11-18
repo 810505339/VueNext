@@ -1,9 +1,9 @@
 import {defineComponent, ref, computed, provide, readonly} from 'vue'
-import {Layout} from "ant-design-vue";
+import {Layout,} from "ant-design-vue";
 import Tabs from './Tabs'
 import Css from './layout.module.less'
-import {RouterView} from 'vue-router'
 import Theader from './Header'
+import BlankView from "@/components/RouterView/BlankView";
 
 const {Sider, Header, Footer, Content} = Layout
 
@@ -37,9 +37,11 @@ export default defineComponent(() => {
         <Layout>
             {renderHeader()}
             <Content>
-                <RouterView/>
+                <BlankView/>
             </Content>
-            <Footer></Footer>
+            <Footer>
+                Antd
+            </Footer>
         </Layout>
     </Layout>)
 })
