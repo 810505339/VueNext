@@ -37,7 +37,7 @@ export default defineComponent({
 
         }
         return () => (
-            <Menu onClick={async ({item, key, keyPath}) => {
+            <Menu onClick={async ({key}) => {
                 await push({name: key})
             }} defaultSelectedKeys={[name]} defaultOpenKeys={openKeys} theme={theme.value}
                   mode={'inline'}>

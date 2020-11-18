@@ -12,10 +12,6 @@ export default defineComponent(() => {
     const theme = ref<'light' | 'dark'>('light')
     provide('theme', theme)//注入主题
 
-    const changeTheme = (Theme: 'light' | 'dark') => {
-        theme.value = Theme
-    }
-    provide('changeTheme', changeTheme)
 
     const collapsed = ref<Boolean>(false) //侧边栏状态
     const logoStyle = computed(() => {

@@ -47,18 +47,28 @@ const routes: Array<RouteRecordRaw> = [
                 component: () => import('@/components/RouterView/BlankView'),
                 meta: {
                     title: '表格页',
-                    icon: TableOutlined
+                    icon:TableOutlined
                 },
                 children: [
+                    {
+                        name: 'customer-table',
+                        path: 'customer-table',
+                        component: () => import('@/views/form/CustomerTable'),
+                        meta: {
+                            title: '客户表格',
+
+                        },
+                    },
                     {
                         name: 'file-table',
                         path: 'file-table',
                         component: () => import('@/views/form/FileTable'),
                         meta: {
                             title: '文件表格',
-                            icon: HomeFilled
+
                         },
                     },
+
                 ]
             },
         ]
